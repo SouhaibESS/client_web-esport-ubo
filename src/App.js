@@ -1,11 +1,43 @@
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+
 import NavBar from "./components/NavBar";
 import Leagues from "./features/leagues/Leagues";
+import League from "./features/league/League";
+import Teams from "./features/teams/Teams";
+import Team from "./features/team/Team";
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <Leagues />
+    <div style={{ height: "100%" }}>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return <Redirect to="/leagues" />;
+            }}
+          />
+          <Route exact path="/leagues">
+            <Leagues />
+          </Route>
+          <Route exact path="/leagues/:id">
+            <League />
+          </Route>
+          <Route exact path="/teams">
+            <Teams />
+          </Route>
+          <Route exact path="/teams/:id">
+            <Team />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

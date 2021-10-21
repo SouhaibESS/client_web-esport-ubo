@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
@@ -15,24 +16,28 @@ export default function NavBar() {
             E-Sport UBO
           </Typography>
           <Stack direction="row" spacing={2}>
-            <Button
-              style={{
-                color: "white",
-                border: "1px solid rgba(255, 255, 255, 1)",
-              }}
-              variant="outlined"
-            >
-              TEAMS
-            </Button>
-            <Button
-              style={{
-                color: "white",
-                border: "1px solid rgba(255, 255, 255, 1)",
-              }}
-              variant="outlined"
-            >
-              lEAGUES
-            </Button>
+            <Link style={{ textDecoration: "none" }} to="/teams">
+              <Button
+                style={{
+                  color: "white",
+                  border: "1px solid rgba(255, 255, 255, 1)",
+                }}
+                variant="outlined"
+              >
+                TEAMS
+              </Button>
+            </Link>
+            <Link style={{ textDecoration: "none" }} to="/leagues">
+              <Button
+                style={{
+                  color: "white",
+                  border: "1px solid rgba(255, 255, 255, 1)",
+                }}
+                variant="outlined"
+              >
+                lEAGUES
+              </Button>
+            </Link>
           </Stack>
         </Toolbar>
       </AppBar>
